@@ -43,6 +43,7 @@ func (l *limiter) Do(next http.Handler) http.Handler {
 			allowed, err := l.isRequestAllowed(r, key, l.cfg.KeyLimit, database.TypeKey)
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
+				w.Write([]byte("error: " + err.Error()))
 				return
 			}
 
@@ -54,6 +55,7 @@ func (l *limiter) Do(next http.Handler) http.Handler {
 			allowed, err := l.isRequestAllowed(r, ip, l.cfg.IPLimit, database.TypeIP)
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
+				w.Write([]byte("error: " + err.Error()))
 				return
 			}
 

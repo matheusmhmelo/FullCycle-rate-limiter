@@ -6,3 +6,12 @@ services:
     command: redis-server --requirepass password
     ports:
       - "6379:6379"
+
+  ratelimiter:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    depends_on:
+      - redis

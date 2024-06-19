@@ -13,8 +13,8 @@ Possibilita X requests por Y tempo com a mesma API Key informada no Header `API_
 
 ### Como iniciar o sistema
 
-1. Na pasta raíz do sistema execute `make up` para iniciar as dependências do sistema.
-2. Em outro terminal, execute `make run` para iniciar o servidor.
+1. Na pasta raíz do sistema execute `make build` para criar a imagem docker do servidor.
+2. Após terminado o build, execute `make run` para iniciar o servidor e suas dependências.
 3. Com o servidor inicializado, é possível testar as requests:
 ```http request
 GET http://localhost:8080/

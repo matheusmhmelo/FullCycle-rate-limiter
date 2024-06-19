@@ -1,7 +1,7 @@
-up:
-	docker-compose up
+build:
+	docker build -t ratelimiter .
 
 run:
-	go run .
+	docker-compose build && docker-compose up
 
-.PHONY: up run
+.PHONY: build run
